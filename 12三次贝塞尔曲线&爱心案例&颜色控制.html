@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="c1" width="600" height="400"></canvas>
+    <script>
+        let c1 = document.getElementById('c1')
+        let ctx = c1.getContext('2d')
+        // ctx.moveTo(300,130)
+        // ctx.bezierCurveTo(570,0,570,300,300,400)
+        // ctx.bezierCurveTo(30,300,30,0,300,130)
+        // ctx.stroke()
+
+
+        // 封装
+        let heartPath=new Path2D()
+        heartPath.moveTo(300,130)
+        heartPath.bezierCurveTo(570,0,570,300,300,400)
+        heartPath.bezierCurveTo(30,300,30,0,300,130)
+        ctx.strokeStyle = 'red'
+        ctx.stroke(heartPath)
+        ctx.fillStyle = 'rgba(255,200,200,0.3)'
+        ctx.fill(heartPath)
+    </script>
+</body>
+
+</html>

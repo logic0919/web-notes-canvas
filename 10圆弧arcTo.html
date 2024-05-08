@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="c1" width="600" height="400"></canvas>
+    <script>
+        let c1 = document.getElementById('c1')
+        let ctx = c1.getContext('2d')
+        ctx.moveTo(200,200)
+        // 这个函数的作用：
+        // 首先有三个点，一个是上一行代码moveTo到的点
+        // 另外arcTo的前四个参数中前两个表示第二个点，之后的两个是第三个点
+        // 有这三个点会生成一个圆形，半径是arcTo的最后一个参数，这个圆形的特点是和三个点形成的两条边相切
+        // 那么圆弧就是两个切点中间的那段圆弧
+        // 最终生成的图形就是从上一行代码中moveTo到的点开始，到圆弧的一个起点，再到圆弧的终点
+        ctx.arcTo(200,300,100,300,70)
+        ctx.stroke()
+        // ctx.fill()
+    </script>
+</body>
+
+</html>

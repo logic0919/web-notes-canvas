@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="c1" width="600" height="400"></canvas>
+    <script>
+        let c1 = document.getElementById('c1')
+        let ctx = c1.getContext('2d')
+        ctx.beginPath()
+        let img = new Image();
+        img.src = "img1.jpg"
+        img.addEventListener('load',function(){
+            // 第一种绘制方法，参数1为图片对象，参数2为将图片渲染到画布的水平位置，参数3将图片渲染到画布的垂直位置
+            // ctx.drawImage(img, 0, 0)
+            // 第二种绘制方法，参数1为图片对象，参数2为将图片渔染到画布的水平位置，参数3将图片渔染到画布的垂直位置, 参数4将图片缩放到对应的宽度，参数5将图片缩放到对应的高度           
+            // ctx.drawImage(img,0,0,600,400)
+            // 第三种绘制方法，参数2、3为要在原图片上裁剪的起始位置，4、5表示要裁剪的宽度和高度，6、7表示放置在画布上的起始位置的x、y，8、9表示图片要缩放到的宽度和高度
+            ctx.drawImage(img,200,200,600,600,0,0,600,400)
+        })
+        ctx.closePath()
+    </script>
+</body>
+
+</html>

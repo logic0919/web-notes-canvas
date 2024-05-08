@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            position: relative;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 600px;
+            left: 200px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <canvas id="c1" width="600" height="400"></canvas>
+    <script>
+        let c1=document.getElementById('c1')
+        let ctx=c1.getContext('2d')
+        let linearGradient = ctx.createLinearGradient(0, 0, 600, 0)
+        linearGradient.addColorStop(0, 'rgb(101, 180, 249)')
+        linearGradient.addColorStop(1, 'rgb(101, 121, 246)')
+        ctx.fillStyle = linearGradient
+        ctx.fillRect(0, 0, 600, 400)
+        document.querySelector('div').style.backgroundImage='url("'+ctx.canvas.toDataURL()+'")'
+    </script>
+    
+</body>
+</html>

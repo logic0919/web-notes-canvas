@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* *{
+            box-shadow:10px 10px 10px pink;
+        } */
+    </style>
+</head>
+
+<body>
+    <canvas id="c1" width="600" height="400"></canvas>
+    <script>
+        let c1 = document.getElementById('c1')
+        let ctx = c1.getContext('2d')
+        ctx.beginPath()
+        ctx.shadowOffsetX=10
+        ctx.shadowOffsetY=10
+        ctx.shadowBlur=5
+        ctx.shadowColor='red'
+        ctx.strokeRect(20,20,50,50)
+        ctx.fillRect(100,100,80,60)
+        ctx.closePath()
+    </script>
+</body>
+
+</html>

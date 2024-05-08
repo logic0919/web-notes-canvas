@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="c1" width="600" height="400"></canvas>
+    <script>
+        let c1 = document.getElementById('c1')
+        let ctx = c1.getContext('2d')
+
+
+        // 下面这一段代码会使生成的两个矩形都是填充模式
+        // ctx.rect(100, 100, 200, 100)
+        // ctx.stroke()
+        // ctx.rect(200, 150, 200, 100)
+        // ctx.fill()
+
+
+        // 下面这段代码可以解决上面那段代码所出现的问题
+        ctx.beginPath()
+        ctx.rect(100, 100, 200, 100)
+        ctx.stroke()
+        ctx.closePath()
+        ctx.beginPath()
+        ctx.rect(200, 150, 200, 100)
+        ctx.fill()
+        ctx.closePath()
+
+
+        // 但下面这一段不需要bigin和closePath就可达到效果，俺也不清楚原因
+        // 也就是说如果先用fill填充模式，那么生成的矩形可达到效果，不需要beginPath和closePath
+        // ctx.rect(200, 150, 200, 100)
+        // ctx.fill()
+        // ctx.rect(100, 100, 200, 100)
+        // ctx.stroke()
+    </script>
+</body>
+
+</html>

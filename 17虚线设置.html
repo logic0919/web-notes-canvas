@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="c1" width="600" height="400"></canvas>
+    <script>
+        let c1 = document.getElementById('c1')
+        let ctx = c1.getContext('2d')
+        let index = 0;
+        function render() {
+            ctx.clearRect(0,0,600,400); 
+            index++; 
+            if (index > 400){
+                index = 0;
+            }
+            ctx.moveTo(150,150);
+            ctx.lineTo(300,200);
+            ctx.lineTo(450,150);
+            // 设置线条样式,默认1px
+            ctx.lineWidth = 1
+            // 设置线条端点样式,butt平齐，round半圈，正方形，square
+            ctx.lineCap ="square"
+            // 设置2个线段连接处的样式,mitter外侧相连的角,round角被磨圈了，bevel
+            ctx.lineJoin = "mitter"
+            // 对斜接面进行限制
+            ctx.miterLimit = 5
+            // 设置虚线
+            ctx.setLineDash([40,20]);
+            ctx.lineDashOffset = index;
+            ctx.stroke();
+            requestAnimationFrame(render);
+        }
+        render();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="c1" width="600" height="400"></canvas>
+    <script>
+        let c1 = document.getElementById('c1')
+        let ctx = c1.getContext('2d')
+        // ctx.beginPath()
+        let index=0
+        let radiaGradient=ctx.createRadialGradient(300,200,0,300,200,100);
+        radiaGradient.addColorStop(0,'red');
+        radiaGradient.addColorStop(0.6,'pink');
+        radiaGradient.addColorStop(1,'yellow');
+        ctx.fillStyle=radiaGradient;
+        ctx.fillRect(0,0,600,400);
+        requestAnimationFrame(render)
+        // ctx.closePath()
+    </script>
+</body>
+
+</html>

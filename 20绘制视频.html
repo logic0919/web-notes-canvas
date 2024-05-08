@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="c1" width="600" height="400"></canvas>
+    <video src="video.mp4" controls hidden></video>
+    <button>播放/暂停</button>
+    <script>
+        let btn=document.querySelector('button')
+        let video=document.querySelector('video')
+        let c1 = document.getElementById('c1')
+        let ctx = c1.getContext('2d')
+        ctx.beginPath()
+        btn.addEventListener('click',function(){
+            if(video.paused){
+                video.play()
+                render()
+            }else{
+                video.pause()
+            }           
+        })
+        function render(){
+            ctx.drawImage(video,0,0,600,400)
+            requestAnimationFrame(render)
+        }
+        ctx.closePath()
+    </script>
+</body>
+
+</html>

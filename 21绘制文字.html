@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="c1" width="600" height="400"></canvas>
+    <script>
+        let c1 = document.getElementById('c1')
+        let ctx = c1.getContext('2d')
+        // 文字，大小 / 字体
+        ctx.strokeStyle ="pink"
+        ctx.font = "100px Microsoft YaHei"
+        // 填充渲染文字
+        // fillText(文本，文本的起点x,文本起点的y,绘制文字最大的宽度)
+        ctx.fillText("老陈",300,200,100);
+        // 文本对齐选项textAlign,start(默认),end,left,right,center
+        ctx.textAlign ="center";
+        // 文本基线对齐, textBaseline, top, bottom, alphabetic(默认),middle
+        ctx.textBaseline = "middle";
+        // 文本的方向
+        ctx.direction ="rtl"
+        // 预测量文本宽度
+        let text = ctx.measureText("Hello!");
+        console.log(text);
+        ctx.strokeText("Hello",300,200);
+        ctx.arc(300,200,5,0,2 * Math.PI); 
+        ctx.fill();
+    </script>
+</body>
+
+</html>
